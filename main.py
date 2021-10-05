@@ -34,24 +34,26 @@ class Persona:
     def nan_balidazioa(self):
         palabra = "TRWAGMYFPDXBNJZSQVHLCKE"
         dni_sin = self.dni[:-1]
-
-        if palabra[int(dni_sin)%23] == self.dni[8]:
-            if self.idioma == "euskera":
-                print("NAN-a zuzen dago!!")
-            if self.idioma == "castellano":
-                print("El DNI es correcto!!")
-            if self.idioma == "ingles":
-                print("DNI was incorrect!!")
+        if str.isdigit(dni_sin):
+            if palabra[int(dni_sin)%23] == self.dni[8]:
+                if self.idioma == "euskera":
+                    print("NAN-a zuzen dago!!")
+                if self.idioma == "castellano":
+                    print("El DNI es correcto!!")
+                if self.idioma == "ingles":
+                    print("DNI was incorrect!!")
+            else:
+                if self.idioma == "euskera":
+                    print("NAN-a ez dago zuzen!!")
+                if self.idioma == "castellano":
+                    print("El DNI es incorrecto!!")
+                if self.idioma == "ingles":
+                    print("Is the incorrect DNI!!")
         else:
-            if self.idioma == "euskera":
-                print("NAN-a ez dago zuzen!!")
-            if self.idioma == "castellano":
-                print("El DNI es incorrecto!!")
-            if self.idioma == "ingles":
-                print("Is the incorrect DNI!!")
+            print("Inserte 8 numeros y 1 letra, ejem.'11111111X'")
 
 p1 = Persona("Iñigo","Perez","72605276A","euskera",24)
-p2 = Persona("Ander","Erandio","72602276A","castellano",12)
+p2 = Persona("Ander","Erandio","726022AAA","castellano",12)
 
 p1.botoa_eman()
 print(p1.hitz_egin())
